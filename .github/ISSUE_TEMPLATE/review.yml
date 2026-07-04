@@ -1,0 +1,50 @@
+name: 定期レビュー
+description: 月次・四半期レビューを実施する Issue
+title: "[Review] YYYY-MM 月次レビュー"
+labels:
+  - review
+body:
+  - type: markdown
+    attributes:
+      value: |
+        定期レビュー用の Issue です。テンプレート（[monthly-review.md](https://github.com/shiba-tt/cloud-native-ai-developer-roadmap/blob/main/templates/monthly-review.md)）に沿って振り返り、
+        結果を [docs/operations/](https://github.com/shiba-tt/cloud-native-ai-developer-roadmap/tree/main/docs/operations) に記録してからこの Issue を閉じてください。
+  - type: dropdown
+    id: review-type
+    attributes:
+      label: レビュー種別
+      options:
+        - 月次レビュー
+        - 四半期レビュー
+    validations:
+      required: true
+  - type: input
+    id: period
+    attributes:
+      label: 対象期間
+      placeholder: "例: 2026-07 / 2026-Q3"
+    validations:
+      required: true
+  - type: textarea
+    id: checklist
+    attributes:
+      label: レビューチェックリスト
+      value: |
+        - [ ] 今月（今期）やったことを整理した
+        - [ ] 取得した知識・作った成果物を記録した
+        - [ ] 詰まったこと・原因を言語化した
+        - [ ] 来月（来期）の目標を設定した
+        - [ ] ロードマップ・資格計画の修正点を反映した
+        - [ ] roadmap / portfolio-roadmap / milestones のステータス表記を同期した
+        - [ ] （四半期のみ）検討中資格の公式情報を再確認した
+        - [ ] （四半期のみ）年次目標との整合を確認した
+        - [ ] 結果を docs/operations/ に記録した
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: メモ
+      description: レビュー実施時の補足があれば
+    validations:
+      required: false

@@ -1,0 +1,28 @@
+name: Link check
+
+# ドキュメント中心のリポジトリはリンク切れが劣化の最初の兆候になるため、
+# PR 時と週次でリンクの健全性をチェックする。
+
+on:
+  pull_request:
+  schedule:
+    - cron: "0 0 * * 1" # 毎週月曜 09:00 JST
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --max-retries 3
+            --accept "200..=299,403,429"
+            './**/*.md'
+          fail: true

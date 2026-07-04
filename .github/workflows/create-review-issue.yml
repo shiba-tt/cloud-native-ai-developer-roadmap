@@ -1,0 +1,76 @@
+name: Create review issue
+
+# 月次・四半期レビューの起票を自動化する。
+# 毎月 1 日 09:00 JST に前月分の月次レビュー Issue を作成し、
+# 四半期の切り替わり月（1 / 4 / 7 / 10 月）には四半期レビュー Issue も作成する。
+# レビュー運用が「忘れたら止まる」状態を仕組みで防ぐ。
+
+on:
+  schedule:
+    - cron: "0 0 1 * *" # 毎月 1 日 09:00 JST（00:00 UTC）
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  create-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            // JST 基準で「前月」を求める
+            const now = new Date(Date.now() + 9 * 3600 * 1000);
+            const prev = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() - 1, 1));
+            const year = prev.getUTCFullYear();
+            const month = prev.getUTCMonth() + 1;
+            const ym = `${year}-${String(month).padStart(2, '0')}`;
+
+            const monthlyBody = [
+              `対象期間: ${ym}`,
+              '',
+              '[templates/monthly-review.md](https://github.com/shiba-tt/cloud-native-ai-developer-roadmap/blob/main/templates/monthly-review.md) に沿って振り返り、結果を docs/operations/ に記録してからこの Issue を閉じてください。',
+              '',
+              '- [ ] 今月やったことを整理した',
+              '- [ ] 取得した知識・作った成果物を記録した',
+              '- [ ] 詰まったこと・原因を言語化した',
+              '- [ ] 来月の目標を設定した',
+              '- [ ] ロードマップ・資格計画の修正点を反映した',
+              '- [ ] roadmap / portfolio-roadmap / milestones のステータス表記を同期した',
+              '- [ ] 結果を docs/operations/monthly-review.md に記録した',
+            ].join('\n');
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[Review] ${ym} 月次レビュー`,
+              labels: ['review'],
+              body: monthlyBody,
+            });
+
+            // 前月が四半期末（3 / 6 / 9 / 12 月）なら四半期レビューも起票する
+            if ([3, 6, 9, 12].includes(month)) {
+              const quarter = month / 3;
+              const quarterlyBody = [
+                `対象期間: ${year}-Q${quarter}`,
+                '',
+                '四半期レビューの観点は [docs/operations/quarterly-review.md](https://github.com/shiba-tt/cloud-native-ai-developer-roadmap/blob/main/docs/operations/quarterly-review.md) を参照してください。',
+                '',
+                '- [ ] フェーズ進捗を確認し、重心を移すべきか判断した',
+                '- [ ] 検討中資格の公式情報を再確認した（特に AI 系）',
+                '- [ ] 成果物の進捗を確認した（学習が成果物に繋がっているか）',
+                '- [ ] 年次目標とのずれを確認した',
+                '- [ ] 原則（principles.md）に反する行動がないか確認した',
+                '- [ ] クラウド費用・教材費・受験料が計画内か確認した',
+                '- [ ] 結果を docs/operations/quarterly-review.md に記録した',
+              ].join('\n');
+
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `[Review] ${year}-Q${quarter} 四半期レビュー`,
+                labels: ['review'],
+                body: quarterlyBody,
+              });
+            }

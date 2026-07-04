@@ -1,0 +1,56 @@
+name: 学習タスク
+description: 単発の学習タスク（書籍・コース・ハンズオンなど）を管理する Issue
+title: "[Learn] タスク名を入力"
+labels:
+  - learning
+body:
+  - type: markdown
+    attributes:
+      value: |
+        単発学習タスク用の Issue です。学習は必ず小さな成果物（コード・メモ・記事）に落とし込みます。
+  - type: input
+    id: task-name
+    attributes:
+      label: 学習テーマ
+      placeholder: "例: Cosmos DB のパーティション設計を理解する"
+    validations:
+      required: true
+  - type: dropdown
+    id: phase
+    attributes:
+      label: 対応フェーズ
+      options:
+        - 1. Foundation
+        - 2. Data Platform
+        - 3. Security & Identity
+        - 4. Cloud Native
+        - 5. AI Application
+        - 6. Architecture & DevOps
+        - 7. Portfolio
+        - その他
+    validations:
+      required: true
+  - type: textarea
+    id: resources
+    attributes:
+      label: 使用リソース
+      description: 公式ドキュメント / Microsoft Learn / 書籍 / コースなど（公式情報を優先）
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: アウトプット（成果物）
+      description: 学習の結果として何を作るか（サンプルコード・検証リポジトリ・まとめ等）
+    validations:
+      required: true
+  - type: textarea
+    id: done-criteria
+    attributes:
+      label: 完了条件
+      value: |
+        - [ ] 学習を完了した
+        - [ ] 成果物を作成した
+        - [ ] 学習ログ（study-log）を記録した
+    validations:
+      required: true

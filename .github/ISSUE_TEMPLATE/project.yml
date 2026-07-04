@@ -1,0 +1,63 @@
+name: 個人開発プロジェクト
+description: 個人開発プロジェクト（検証・ポートフォリオ・プロダクト）を管理する Issue
+title: "[Project] プロジェクト名を入力"
+labels:
+  - project
+body:
+  - type: markdown
+    attributes:
+      value: |
+        個人開発プロジェクト用の Issue です。詳細な計画は [templates/project-plan.md](https://github.com/shiba-tt/cloud-native-ai-developer-roadmap/blob/main/templates/project-plan.md) で作成し、この Issue からリンクしてください。
+  - type: input
+    id: project-name
+    attributes:
+      label: プロジェクト名
+    validations:
+      required: true
+  - type: dropdown
+    id: project-type
+    attributes:
+      label: プロジェクト種別
+      options:
+        - 検証プロジェクト（技術の理解・確認）
+        - ポートフォリオプロジェクト（スキルの証明)
+        - プロダクト（リリース・運用まで）
+    validations:
+      required: true
+  - type: textarea
+    id: purpose
+    attributes:
+      label: 目的
+      description: 何のために作るか。どのスキル / 資格に対応するか
+    validations:
+      required: true
+  - type: textarea
+    id: tech-stack
+    attributes:
+      label: 使用技術（予定）
+      placeholder: |
+        例:
+        - クライアント: SwiftUI
+        - バックエンド: Azure Functions (C#)
+        - データ: Cosmos DB
+    validations:
+      required: true
+  - type: textarea
+    id: mvp
+    attributes:
+      label: MVP
+      description: 最初のリリースに含める最小機能（3〜5 個以内）
+    validations:
+      required: true
+  - type: textarea
+    id: done-criteria
+    attributes:
+      label: 完了条件
+      value: |
+        - [ ] project-plan.md で計画を作成した
+        - [ ] MVP の機能がすべて動く
+        - [ ] README にアーキテクチャ図と使用技術を記載した
+        - [ ] シークレット管理とコスト上限を設定した
+        - [ ] 学びを月次レビューに記録した
+    validations:
+      required: true
