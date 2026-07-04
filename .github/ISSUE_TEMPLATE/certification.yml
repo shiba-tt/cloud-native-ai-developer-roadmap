@@ -1,0 +1,82 @@
+name: 資格学習
+description: 資格の検討・学習・受験を管理する Issue
+title: "[Cert] 資格名を入力"
+labels:
+  - certification
+body:
+  - type: markdown
+    attributes:
+      value: |
+        資格学習用の Issue です。起票前に [docs/certification/overview.md](../../docs/certification/overview.md) の評価軸を確認してください。
+        **受験日を確定する前に、必ず公式ページで試験名・言語・廃止日・後継資格を確認すること。**
+  - type: input
+    id: cert-name
+    attributes:
+      label: 資格名
+      placeholder: "例: AZ-305 (Microsoft Certified: Azure Solutions Architect Expert)"
+    validations:
+      required: true
+  - type: input
+    id: official-url
+    attributes:
+      label: 公式 URL
+      description: Microsoft Learn / 各認定団体の公式試験ページの URL
+      placeholder: "https://learn.microsoft.com/..."
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 優先度
+      options:
+        - 高（現在のフェーズに直結）
+        - 中（次フェーズで必要）
+        - 低（将来検討）
+    validations:
+      required: true
+  - type: input
+    id: exam-date
+    attributes:
+      label: 受験予定日
+      description: 未定の場合は「未定」と記入
+      placeholder: "YYYY-MM-DD または 未定"
+    validations:
+      required: true
+  - type: dropdown
+    id: japanese-available
+    attributes:
+      label: 日本語受験可否
+      description: 公式ページで確認した結果を選択
+      options:
+        - 可（公式確認済み）
+        - 不可（公式確認済み）
+        - 未確認（要公式確認）
+    validations:
+      required: true
+  - type: input
+    id: retirement-date
+    attributes:
+      label: 廃止日
+      description: 公式ページの Retirement date。アナウンスがなければ「アナウンスなし（確認日を記載）」
+      placeholder: "例: アナウンスなし（2026-07-01 確認） / YYYY-MM-DD 廃止予定"
+    validations:
+      required: true
+  - type: textarea
+    id: purpose
+    attributes:
+      label: 学習目的
+      description: なぜこの資格を学ぶのか。実装力・成果物・キャリアにどう繋がるか
+    validations:
+      required: true
+  - type: textarea
+    id: done-criteria
+    attributes:
+      label: 完了条件
+      description: この Issue を閉じられる条件（例：公式確認完了・受験判断・合格・成果物作成）
+      value: |
+        - [ ] 公式ページで試験情報（言語・廃止日・後継・範囲）を確認し、certification/ 配下に記録した
+        - [ ] 受験する / しないを判断した
+        - [ ] （受験する場合）certification-plan.md で計画を作成した
+        - [ ] （合格後）成果物を作成し portfolio-roadmap.md に反映した
+    validations:
+      required: true
