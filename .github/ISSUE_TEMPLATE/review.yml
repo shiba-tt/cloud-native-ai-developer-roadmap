@@ -1,0 +1,34 @@
+name: レビュー
+about: 月次・四半期レビューを作成する
+labels: [review]
+body:
+  - type: dropdown
+    id: review-type
+    attributes:
+      label: レビュー種別
+      options: [月次レビュー, 四半期レビュー]
+    validations:
+      required: true
+  - type: input
+    id: period
+    attributes:
+      label: 対象期間
+      placeholder: 2026-07
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: やったこと
+  - type: textarea
+    id: learned
+    attributes:
+      label: 学んだこと
+  - type: textarea
+    id: blockers
+    attributes:
+      label: 詰まったこと
+  - type: textarea
+    id: next
+    attributes:
+      label: 次にやること

@@ -1,0 +1,30 @@
+name: 学習タスク
+about: 単発の学習タスクを作成する
+labels: [learning]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: 学習テーマ
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: 目的
+    validations:
+      required: true
+  - type: textarea
+    id: resources
+    attributes:
+      label: 参照する公式情報・教材
+  - type: textarea
+    id: output
+    attributes:
+      label: 成果物
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: 完了条件

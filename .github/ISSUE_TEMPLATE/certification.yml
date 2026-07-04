@@ -1,0 +1,50 @@
+name: 資格学習
+about: 資格学習計画を作成する
+labels: [certification]
+body:
+  - type: input
+    id: certification-name
+    attributes:
+      label: 資格名
+      placeholder: AZ-305
+    validations:
+      required: true
+  - type: input
+    id: official-url
+    attributes:
+      label: 公式URL
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 優先度
+      options: [High, Medium, Low]
+    validations:
+      required: true
+  - type: input
+    id: exam-date
+    attributes:
+      label: 受験予定日
+  - type: input
+    id: japanese
+    attributes:
+      label: 日本語受験可否
+      placeholder: 公式確認が必要
+  - type: input
+    id: retirement-date
+    attributes:
+      label: 廃止日
+      placeholder: 公式確認が必要
+  - type: textarea
+    id: purpose
+    attributes:
+      label: 学習目的
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: 完了条件
+    validations:
+      required: true
