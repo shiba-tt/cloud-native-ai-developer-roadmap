@@ -1,6 +1,7 @@
 # 学習ログ: YYYY-MM-DD
 
 > このテンプレートをコピーして日々の学習を記録する。
+> 保存先: `docs/learning/logs/YYYY/YYYY-MM-DD.md`（[命名規則](../docs/learning/logs/README.md)。軽い記録は関連 Issue のコメントでもよい）
 > 完璧に書くより、続けることを優先する（数行でもよい）。
 
 ## 基本情報

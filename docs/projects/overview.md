@@ -9,6 +9,7 @@
 | --- | --- |
 | [portfolio-roadmap.md](portfolio-roadmap.md) | 資格・学習と成果物の対応ロードマップ |
 | [ideas.md](ideas.md) | プロダクトアイデアのストック |
+| [plans/](plans/) | 記入済みのプロジェクト計画（project-plan テンプレートの保存先） |
 
 ## プロジェクトの種類
 
@@ -20,7 +21,7 @@
 
 ## プロジェクト運用ルール
 
-1. 開始時に [templates/project-plan.md](../../templates/project-plan.md) で計画を作り、Issue（project テンプレート）を起票する
+1. 開始時に [templates/project-plan.md](../../templates/project-plan.md) で計画を作って [plans/](plans/) に保存し、Issue（project テンプレート）を起票する
 2. **MVP を最小に定義**し、まず動くものを作る
 3. コスト上限（Azure Budget）とセキュリティ（シークレット管理）を最初に設定する
 4. README にアーキテクチャ図と使用技術を書き、ポートフォリオとして読める状態にする

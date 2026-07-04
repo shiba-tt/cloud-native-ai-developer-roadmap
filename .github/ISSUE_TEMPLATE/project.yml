@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        個人開発プロジェクト用の Issue です。詳細な計画は [templates/project-plan.md](../../templates/project-plan.md) で作成し、この Issue からリンクしてください。
+        個人開発プロジェクト用の Issue です。詳細な計画は [templates/project-plan.md](https://github.com/shiba-tt/cloud-native-ai-developer-roadmap/blob/main/templates/project-plan.md) で作成し、この Issue からリンクしてください。
   - type: input
     id: project-name
     attributes:

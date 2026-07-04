@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        資格学習用の Issue です。起票前に [docs/certification/overview.md](../../docs/certification/overview.md) の評価軸を確認してください。
+        資格学習用の Issue です。起票前に [docs/certification/overview.md](https://github.com/shiba-tt/cloud-native-ai-developer-roadmap/blob/main/docs/certification/overview.md) の評価軸を確認してください。
         **受験日を確定する前に、必ず公式ページで試験名・言語・廃止日・後継資格を確認すること。**
   - type: input
     id: cert-name

@@ -7,8 +7,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        定期レビュー用の Issue です。テンプレート（[monthly-review.md](../../templates/monthly-review.md)）に沿って振り返り、
-        結果を [docs/operations/](../../docs/operations/) に記録してからこの Issue を閉じてください。
+        定期レビュー用の Issue です。テンプレート（[monthly-review.md](https://github.com/shiba-tt/cloud-native-ai-developer-roadmap/blob/main/templates/monthly-review.md)）に沿って振り返り、
+        結果を [docs/operations/](https://github.com/shiba-tt/cloud-native-ai-developer-roadmap/tree/main/docs/operations) に記録してからこの Issue を閉じてください。
   - type: dropdown
     id: review-type
     attributes:
@@ -35,6 +35,7 @@ body:
         - [ ] 詰まったこと・原因を言語化した
         - [ ] 来月（来期）の目標を設定した
         - [ ] ロードマップ・資格計画の修正点を反映した
+        - [ ] roadmap / portfolio-roadmap / milestones のステータス表記を同期した
         - [ ] （四半期のみ）検討中資格の公式情報を再確認した
         - [ ] （四半期のみ）年次目標との整合を確認した
         - [ ] 結果を docs/operations/ に記録した

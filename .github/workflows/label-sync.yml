@@ -1,0 +1,26 @@
+name: Sync labels
+
+# .github/labels.yml の定義をリポジトリのラベルに同期する。
+# Issue テンプレートが指定するラベルは、リポジトリに存在しないと黙って無視されるため、
+# ラベルはこのワークフローで宣言的に管理する。
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/labels.yml"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: EndBug/label-sync@v2
+        with:
+          config-file: .github/labels.yml
+          # 既存の既定ラベル（bug 等）は削除しない
+          delete-other-labels: false

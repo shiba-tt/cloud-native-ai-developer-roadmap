@@ -15,6 +15,7 @@
 | [github.md](github.md) | GitHub 認定 |
 | [hashicorp.md](hashicorp.md) | HashiCorp（Terraform 等） |
 | [other.md](other.md) | その他（AWS / Google Cloud / ベンダー中立など） |
+| [plans/](plans/) | 記入済みの資格取得計画（certification-plan テンプレートの保存先） |
 
 ## 資格選定の評価軸
 
@@ -36,7 +37,7 @@
 1. 候補をベンダー別ファイルに「要公式確認」として追記する
 2. **公式ページで確認**: 試験名 / 言語 / 廃止日 / 後継資格 / 更新日 / 試験範囲
 3. 上の評価軸で評価し、受験するかを決める（大きな判断は ADR に記録）
-4. 受験を決めたら [templates/certification-plan.md](../../templates/certification-plan.md) で計画を作り、Issue（certification テンプレート）を起票する
+4. 受験を決めたら [templates/certification-plan.md](../../templates/certification-plan.md) で計画を作って [plans/](plans/) に保存し、Issue（certification テンプレート）を起票する
 5. 学習ログは [templates/study-log.md](../../templates/study-log.md) で記録する
 6. 合格後は、計画時に決めた成果物を作って [docs/projects/](../projects/) に反映する
 

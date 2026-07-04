@@ -9,13 +9,14 @@
 | [books.md](books.md) | 書籍リスト（読了状況・学びのメモ） |
 | [courses.md](courses.md) | オンラインコース / Microsoft Learn のラーニングパス |
 | [hands-on.md](hands-on.md) | ハンズオン課題のリスト |
+| [logs/](logs/) | 記入済みの学習ログ（study-log テンプレートの保存先） |
 
 ## 学習の基本サイクル
 
 1. **Input**: 公式ドキュメント / Microsoft Learn / 書籍 / コース
 2. **Hands-on**: 小さな検証プロジェクトで手を動かす
 3. **Output**: 成果物（リポジトリ / デプロイ / 記事）に落とし込む
-4. **Log**: [templates/study-log.md](../../templates/study-log.md) で記録し、Issue に紐付ける
+4. **Log**: [templates/study-log.md](../../templates/study-log.md) で記録して [logs/](logs/) に保存し、Issue に紐付ける
 
 ## リソース選定の優先順位
 

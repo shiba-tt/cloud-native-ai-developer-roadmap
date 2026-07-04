@@ -65,33 +65,37 @@ iOS エンジニアが、数年かけて **Cloud Native AI Developer** になる
 ```text
 .
 ├── README.md                  # 入口。全体方針
+├── CLAUDE.md                  # AI エージェント向け作業規約
+├── AGENTS.md                  # 同上（CLAUDE.md への参照）
 ├── docs/
 │   ├── vision.md              # ビジョン定義
 │   ├── roadmap.md             # フェーズ別ロードマップ
 │   ├── skill-tree.md          # スキルツリー
 │   ├── principles.md          # 判断基準・原則
 │   ├── glossary.md            # 用語集
-│   ├── certification/         # 資格ロードマップ（Azure / Data / Security / AI / CNCF / GitHub / HashiCorp / その他）
-│   ├── learning/              # 学習リソース（書籍 / コース / ハンズオン）
-│   ├── projects/              # 個人開発（ポートフォリオロードマップ / アイデア）
+│   ├── certification/         # 資格ロードマップ（ベンダー別 + plans/ に記入済み計画）
+│   ├── learning/              # 学習リソース（書籍 / コース / ハンズオン + logs/ に学習ログ）
+│   ├── projects/              # 個人開発（ポートフォリオロードマップ / アイデア + plans/ に計画）
 │   └── operations/            # 運用（月次・四半期レビュー / 意思決定ログ）
 ├── career/                    # キャリア（年次目標 / マイルストーン / ロール定義）
-├── adr/                       # Architecture Decision Records
-├── templates/                 # 各種テンプレート
-└── .github/                   # Issue / PR テンプレート
+├── adr/                       # Architecture Decision Records（README.md に一覧）
+├── templates/                 # 各種テンプレート（保存先は各テンプレート冒頭に記載）
+└── .github/                   # Issue / PR テンプレート、ラベル定義、Actions ワークフロー
 ```
 
 ## 運用方針
 
-- 学習・資格・プロジェクトは **GitHub Issue** で管理する（[Issue テンプレート](.github/ISSUE_TEMPLATE/)を使用）
-- 月次で [templates/monthly-review.md](templates/monthly-review.md) を使って振り返りを行い、[docs/operations/](docs/operations/) に記録する
-- 大きな方針変更は **ADR** として [adr/](adr/) に記録する（[テンプレート](templates/adr-template.md)）
+- 学習・資格・プロジェクトは **GitHub Issue** で管理する（[Issue テンプレート](.github/ISSUE_TEMPLATE/)を使用。ラベルは [.github/labels.yml](.github/labels.yml) で宣言管理）
+- 月次で [templates/monthly-review.md](templates/monthly-review.md) を使って振り返りを行い、[docs/operations/](docs/operations/) に記録する。**レビュー Issue は GitHub Actions が毎月 1 日に自動起票する**
+- 大きな方針変更は **ADR** として [adr/](adr/) に記録する（[テンプレート](templates/adr-template.md)、一覧は [adr/README.md](adr/README.md)）
+- ドキュメントのリンク切れは CI（[link-check](.github/workflows/link-check.yml)）が PR 時と週次で検出する
 - ロードマップは固定ではなく、レビューのたびに見直す
 
 ## AI エージェント利用方針
 
 - ChatGPT / Codex / Claude Code などの AI エージェントを、調査・ドキュメント更新・コードレビュー・学習支援に積極的に活用する
 - ただし **最終判断は必ず自分で行う**
+- AI エージェント向けの詳細な作業規約（配置ルール・表記統一・禁止事項）は **[CLAUDE.md](CLAUDE.md)** に定義している。エージェントは作業前に必ず読むこと
 - AI エージェントがこのリポジトリを更新する際は、既存の構成・フォーマットに従い、断定できない情報（試験の言語・廃止日など）には「要公式確認」と明記する
 - AI の出力する資格情報・試験情報は古い可能性があるため、必ず公式情報で裏取りする
 

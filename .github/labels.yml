@@ -1,0 +1,16 @@
+# Issue テンプレートが使用するラベルの定義
+# .github/workflows/label-sync.yml により main へのプッシュ時に同期される
+# ラベルを追加・変更する場合はこのファイルを編集する（GitHub UI で直接編集しない）
+
+- name: certification
+  color: "1D76DB"
+  description: 資格の検討・学習・受験
+- name: learning
+  color: "0E8A16"
+  description: 単発の学習タスク
+- name: project
+  color: "D93F0B"
+  description: 個人開発プロジェクト
+- name: review
+  color: "5319E7"
+  description: 月次・四半期レビュー
